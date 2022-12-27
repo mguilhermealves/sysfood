@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: mysql_sysfood
 -- ------------------------------------------------------
@@ -36,7 +36,7 @@ CREATE TABLE `products` (
   `value` decimal(14,2) DEFAULT '0.00',
   `image` longtext,
   PRIMARY KEY (`idx`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'2022-12-27 00:00:15',2,NULL,NULL,NULL,NULL,'yes','Bife Acebolado','',17.00,NULL),(2,'2022-12-27 00:06:53',2,NULL,NULL,NULL,NULL,'yes','Coca Cola 2L','',11.00,NULL),(3,'2022-12-27 00:07:16',2,NULL,NULL,NULL,NULL,'yes','Feijoada Pequena','',17.00,NULL),(4,'2022-12-27 00:07:32',2,NULL,NULL,NULL,NULL,'yes','Feijoada Média','',25.00,NULL),(5,'2022-12-27 00:07:52',2,NULL,NULL,NULL,NULL,'yes','Feijoada Completa','',50.00,NULL);
+INSERT INTO `products` VALUES (1,'2022-12-27 00:00:15',2,NULL,NULL,NULL,NULL,'yes','Bife Acebolado','',17.00,NULL),(2,'2022-12-27 00:06:53',2,NULL,NULL,NULL,NULL,'yes','Coca Cola 2L','',11.00,NULL),(3,'2022-12-27 00:07:16',2,NULL,NULL,NULL,NULL,'yes','Feijoada Pequena','',17.00,NULL),(4,'2022-12-27 00:07:32',2,NULL,NULL,NULL,NULL,'yes','Feijoada Média','',25.00,NULL),(5,'2022-12-27 00:07:52',2,NULL,NULL,NULL,NULL,'yes','Feijoada Completa','',50.00,NULL),(6,'2022-12-27 14:53:57',2,NULL,NULL,NULL,NULL,'yes','Batata frita com Calabresa acebolada','',25.00,NULL),(7,'2022-12-27 14:54:19',2,NULL,NULL,NULL,NULL,'yes','Cerveja Heinekein','',9.00,NULL);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-27  9:08:47
+-- Dump completed on 2022-12-27 14:36:05

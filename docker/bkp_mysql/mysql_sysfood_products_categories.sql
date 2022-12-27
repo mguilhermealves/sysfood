@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: mysql_sysfood
 -- ------------------------------------------------------
@@ -34,7 +34,7 @@ CREATE TABLE `products_categories` (
   `products_id` int(11) DEFAULT NULL,
   `categories_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`idx`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `products_categories` (
 
 LOCK TABLES `products_categories` WRITE;
 /*!40000 ALTER TABLE `products_categories` DISABLE KEYS */;
-INSERT INTO `products_categories` VALUES (1,'2022-12-27 00:00:15',2,NULL,NULL,NULL,NULL,'yes',1,1),(2,'2022-12-27 00:06:53',2,NULL,NULL,NULL,NULL,'yes',2,2),(3,'2022-12-27 00:07:16',2,NULL,NULL,NULL,NULL,'yes',3,1),(4,'2022-12-27 00:07:32',2,NULL,NULL,NULL,NULL,'yes',4,1),(5,'2022-12-27 00:07:52',2,NULL,NULL,NULL,NULL,'yes',5,1);
+INSERT INTO `products_categories` VALUES (1,'2022-12-27 00:00:15',2,NULL,NULL,NULL,NULL,'yes',1,1),(2,'2022-12-27 00:06:53',2,NULL,NULL,NULL,NULL,'yes',2,2),(3,'2022-12-27 00:07:16',2,NULL,NULL,NULL,NULL,'yes',3,1),(4,'2022-12-27 00:07:32',2,NULL,NULL,NULL,NULL,'yes',4,1),(5,'2022-12-27 00:07:52',2,NULL,NULL,NULL,NULL,'yes',5,1),(6,'2022-12-27 14:53:57',2,NULL,NULL,NULL,NULL,'yes',6,4),(7,'2022-12-27 14:54:19',2,NULL,NULL,NULL,NULL,'yes',7,2);
 /*!40000 ALTER TABLE `products_categories` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-27  9:08:46
+-- Dump completed on 2022-12-27 14:36:07

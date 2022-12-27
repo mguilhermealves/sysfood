@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: mysql_sysfood
 -- ------------------------------------------------------
@@ -34,7 +34,7 @@ CREATE TABLE `categories` (
   `name` varchar(255) DEFAULT NULL,
   `description` varchar(255) NOT NULL,
   PRIMARY KEY (`idx`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,NULL,NULL,NULL,NULL,NULL,NULL,'yes','Refeicão',''),(2,NULL,NULL,NULL,NULL,NULL,NULL,'yes','Bebidas',''),(3,NULL,NULL,NULL,NULL,NULL,NULL,'yes','Doces',''),(4,NULL,NULL,NULL,NULL,NULL,NULL,'yes','Porçoes','');
+INSERT INTO `categories` VALUES (1,NULL,NULL,NULL,NULL,NULL,NULL,'yes','Refeicão',''),(2,NULL,NULL,NULL,NULL,NULL,NULL,'yes','Bebidas',''),(3,NULL,NULL,NULL,NULL,NULL,NULL,'yes','Doces',''),(4,NULL,NULL,NULL,NULL,NULL,NULL,'yes','Porçoes',''),(5,'2022-12-27 14:52:35',2,'2022-12-27 14:53:18',2,NULL,NULL,'yes','Delivery','');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-27  9:08:46
+-- Dump completed on 2022-12-27 14:36:05

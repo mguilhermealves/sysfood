@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `profiles`
+-- Table structure for table `tables`
 --
 
-DROP TABLE IF EXISTS `profiles`;
+DROP TABLE IF EXISTS `tables`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `profiles` (
+CREATE TABLE `tables` (
   `idx` mediumint(9) NOT NULL AUTO_INCREMENT,
   `created_at` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
@@ -32,24 +32,22 @@ CREATE TABLE `profiles` (
   `removed_by` int(11) DEFAULT NULL,
   `active` enum('yes','no') DEFAULT 'yes',
   `name` varchar(255) DEFAULT NULL,
-  `editabled` enum('yes','no') DEFAULT 'yes',
-  `slug` varchar(255) NOT NULL,
-  `adm` enum('yes','no') DEFAULT 'no',
-  `parent` int(11) DEFAULT '0',
-  `description` longtext,
-  `hierarchy` int(11) DEFAULT '0',
+  `description` varchar(255) NOT NULL,
+  `qtd_chairs` int(11) NOT NULL,
+  `position` varchar(255) NOT NULL,
+  `status` enum('libered','occupied','scheduled') DEFAULT 'libered',
   PRIMARY KEY (`idx`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `profiles`
+-- Dumping data for table `tables`
 --
 
-LOCK TABLES `profiles` WRITE;
-/*!40000 ALTER TABLE `profiles` DISABLE KEYS */;
-INSERT INTO `profiles` VALUES (1,NULL,NULL,'2021-12-27 02:47:32',1,NULL,NULL,'yes','master','no','master','yes',0,NULL,0),(39,'2022-03-20 17:52:31',2,'2022-07-27 01:12:38',2,NULL,NULL,'yes','ADM','yes','administrador','yes',0,'Acesso <b>full </b>a todos as funcionalidades (Inclusão, Edição e Exclusão)',1),(40,'2022-03-20 17:55:26',2,NULL,NULL,NULL,NULL,'yes','Caixa','yes','caixa','yes',0,'Acesso a todos os módulos, exceto o cadastro de usuários e permissão de incluir informações, editar informações, mas não pode excluir informações',2),(41,'2022-03-20 17:57:18',2,NULL,NULL,NULL,NULL,'yes','Garçom','yes','garcom','yes',0,'Acesso a todos os módulos, exceto o Cadastro de Usuários e Contas a Pagar. Permissão de incluir informações, editar informações, mas não pode excluir informações',4),(42,'2022-03-20 17:57:51',2,NULL,NULL,NULL,NULL,'yes','Cozinha','yes','cozinha','yes',0,'Acesso a todos os módulos, exceto o Cadastro de Usuários e Contas a Receber. Permissão de incluir informações, editar informações, mas não pode excluir informações',5);
-/*!40000 ALTER TABLE `profiles` ENABLE KEYS */;
+LOCK TABLES `tables` WRITE;
+/*!40000 ALTER TABLE `tables` DISABLE KEYS */;
+INSERT INTO `tables` VALUES (1,'2022-12-27 13:01:58',2,NULL,NULL,NULL,NULL,'yes','Mesa 1','',5,'1','occupied'),(2,'2022-12-27 13:05:23',2,NULL,NULL,NULL,NULL,'yes','Mesa 2','',4,'2','libered');
+/*!40000 ALTER TABLE `tables` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -61,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-27 14:36:06
+-- Dump completed on 2022-12-27 14:36:08
