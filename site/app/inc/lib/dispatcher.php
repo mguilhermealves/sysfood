@@ -16,7 +16,7 @@ class dispatcher{
 		$this->normalize_request () ;
 	}
 	private function normalize_request () {
-		$path_length = strlen( $this->_path_info );
+		$path_length = strlen ( $this->_path_info ) ;
 		if ( $path_length > 0 && $this->_path_info[ $path_length - 1 ] == "/" ) {
 			basic_redir( $this->_request_server . rtrim ( $_SERVER["REQUEST_URI"] , "/" ) );
 		}
@@ -29,8 +29,7 @@ class dispatcher{
 			$path = $this->_path_info ;
 		}
 		else {
-			$path = getenv( "PATH_INFO" ) ;
-			$path = getenv( "REQUEST_URI" ) ;
+			#	$path = getenv ( "PATH_INFO" ) ;
 			$path = preg_replace("/^(.+)\?.+$/","$1", getenv( "REQUEST_URI" ) ) ;
 			if( $path == "/" ){
 				$path = "index.php";
@@ -78,7 +77,7 @@ class dispatcher{
 				if ( ! is_null ( $entry["check"] ) && $entry["check"] === false ){
 					continue ;
 				}
-				if ( preg_match ( "/^" . str_replace ( "/" , "\\/" , $entry["url_pattern"] ) . "$/" , $this->_path_info , $matches ) ) {
+				if ( preg_match( "/^" . str_replace ( "/" , "\\/" , $entry["url_pattern"] ) . "$/" , $this->_path_info , $matches ) ) {
 					$class = $method_name = NULL ;
 					if ( is_string( $entry["exec"] ) ){
 						if ( ( $pos = strpos ( $entry["exec"] , "function:" ) ) !== false ) {

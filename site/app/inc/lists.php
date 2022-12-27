@@ -1,13 +1,35 @@
 <?php
 $yes_no_lists = array(
-  "yes" => "sim" ,
-  "no" => "não"
-);
+  "yes" => "Sim" ,
+  "no" => "Não"
+) ;
 
 $method_lists = array(
   "GET" => "GET" ,
   "POST" => "POST"
-);
+) ;
+
+$alphabetic_list = array(
+  "0" => "A"
+  , "1" => "B"
+  , "2" => "C"
+  , "3" => "D"
+  , "4" => "E"
+  , "5" => "F"
+  , "6" => "G"
+  , "7" => "H"
+  , "8" => "I"
+  , "9" => "J"
+  , "10" => "K"
+  , "11" => "L"
+  , "12" => "M"
+  , "13" => "N"
+  , "14" => "O"
+  , "15" => "P"
+  , "16" => "Q"
+  , "17" => "R"
+  , "18" => "S"
+) ;
 
 $week_name =array(
   "0" => "Domingo"
@@ -17,7 +39,7 @@ $week_name =array(
   , "4" => "Quinta-feira"
   , "5" => "Sexta-feira"
   , "6" => "Sábado"  
-);
+) ;
 
 $withoutaccents_lists = array(
   'á'=>'a'
@@ -93,7 +115,7 @@ $accents_lists = array(
   , 'ù'=>'Ù'
   , 'û'=>'Û'
   , 'ç'=>'Ç'
-);
+) ;
 
 $html_entities_list = array(
   '&nbsp;'  =>  ' ' 
@@ -212,7 +234,7 @@ $month_name = array(
     , "10" => "Outubro"
     , "11" => "Novembro"
     , "12" => "Dezembro"
-);
+) ;
 
 $ufbr_lists = array(
     "AC" => "Acre"
@@ -242,69 +264,38 @@ $ufbr_lists = array(
     , "SE" => "Sergipe"
     , "SP" => "São Paulo"
     , "TO" => "Tocantins"
-);
-
-$meta = array(
-  "Avert" =>  array(
-    "1" =>  "Cumprimento do Sell Out do trimestre da área"
-    , "2" => "Positivação do trimestre da área através da média mês do trimestre"
-    , "3" => "Cumprimento da PV do trimestre – Venda do Mix planejado com os lançamentos"
-    , "4" => "Cumprimento da PV (R$)"
-    , "bonus" => "Bônus de Pontos"
-  )
-  , "DT" => array(
-    "Supervisor(a)" => array(
-      "1" => "Sell Out Geral do trimestre da Distribuidora"
-      , "2" => "Positivação do trimestre da distribuidora através da média mês do trimestre"
-      , "3" => "Distribuição numérica dos lançamentos do trimestre da distribuidora através da média mês do trimestre"
-      , "bonus" => "Bônus de Pontos"
-    )
-    , "Vendedor(a)" => array(
-      "1" => "Cumprimento do valor de Sell Out do trimestre"
-      , "2" => "Positivação do trimestre através da média mês do trimestre"
-      , "3" => "Distribuição numérica dos lançamentos do através da média mês do trimestre"
-      , "bonus" => "Bônus de Pontos"
-    )
-    , "Promotor(a)" => array(
-      "1" => "Sell Out Geral do trimestre da Distribuidora"
-      , "2" => "Positivação do trimestre da distribuidora através da média mês do trimestre"
-      , "3" => "Distribuição numérica dos lançamentos do trimestre da distribuidora através da média mês do trimestre"
-      , "bonus" => "Bônus de Pontos"
-    )
-  )
 ) ;
 
-
-$periodos = array(
-  1 => array(
-      "start" => date("Y-m-d H:i:s", strtotime("01-01-2022 00:00:00")),
-      "end" => date("Y-m-d H:i:s", strtotime("31-03-2022 23:59:59")),
-      "data" => array(),
-      "tipo" => array()
-  )
-  , 2 => array(
-      "start" => date("Y-m-d H:i:s", strtotime("01-04-2022 00:00:00")),
-      "end" => date("Y-m-d H:i:s", strtotime("30-06-2022 23:59:59")),
-      "data" => array(),
-      "tipo" => array()
-  )
-  , 3 => array(
-    "start" => date("Y-m-d H:i:s", strtotime("01-07-2022 00:00:00")),
-    "end" => date("Y-m-d H:i:s", strtotime("30-09-2022 23:59:59")),
-    "data" => array(),
-    "tipo" => array()
-  )
-   , 4 => array(
-      "start" => date("Y-m-d H:i:s", strtotime("01-10-2022 00:00:00")),
-      "end" => date("Y-m-d H:i:s", strtotime("31-12-2022 23:59:59")),
-      "data" => array(),
-      "tipo" => array()
-  )
-  /*, 5 => array(
-    "start" => date("Y-m-d H:i:s", strtotime("01-01-2022 00:00:00")),
-    "end" => date("Y-m-d H:i:s", strtotime("31-01-2022 23:59:59")),
-    "data" => array(),
-    "tipo" => array()
-  ) */
+$genre_lists = array(
+  "male" => "Masculino"
+  , "female" => "Feminino"
+  , "other" => "Outros"
 );
-?>
+
+$marital_status = array(
+  "singer" => "Solteiro"
+  , "married" => "Casado"
+  , "divorced" => "Divorciado"
+  , "widower" => "Viúvo"
+);
+
+$type_bank_lists = array(
+  "J" => "Jurídica"
+  , "F" => "Física"
+);
+
+$type_nature_lists = array(
+  "service" => "Serviço"
+  , "refund" => "Reembolso"
+);
+
+$type_public_lists = array(
+  "in" => "Interno",
+  "out" => "Externo"
+);
+
+$type_products_lists = array(
+  "pizzas" => "Pizzas",
+  "drinks" => "Bebidas",
+  "other" => "Outros"
+);

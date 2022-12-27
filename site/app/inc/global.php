@@ -21,6 +21,7 @@ define( "cAppRoot" , "/" );
 define( "cRootServer" ,  sprintf( "%s%s" , $_SERVER["DOCUMENT_ROOT"] , constant("cAppRoot") ) ) ;
 define( "cRootServer_APP" ,  sprintf( "%s%s" , $_SERVER["DOCUMENT_ROOT"] , constant("cAppRoot") . "../app"  ) ) ;
 define( "cFrontend" , sprintf( "http://%s%s" , $_SERVER["HTTP_HOST"] , constant("cAppRoot") ) );
+define( "cFrontend_USER" , constant("cFrontend") );
 
 define( "cFurniture" , sprintf( "%s%s" , constant("cFrontend") , "furniture/" ) );
 

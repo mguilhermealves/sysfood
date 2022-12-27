@@ -60,7 +60,7 @@ class DOLModel extends rootOBJ {
 				if( $encode === true ){
 					$data[ $key ] = utf8_decode( $data[ $key ] ) ;
 				}
-				if ( strtolower( $data[ $key ] ) ){
+				if ( !is_array( $data[ $key ]) && strtolower( $data[ $key ] ) ){
 					$array[ $key ] = sprintf(
 						" %s = '%s' "
 						, $key
@@ -76,6 +76,11 @@ class DOLModel extends rootOBJ {
 
 	public function return_data(){
 		$this->load_data();
+		return array( $this->recordset , $this->data ) ;
+	}
+
+	public function return_data_vw(){
+		$this->load_data_vw();
 		return array( $this->recordset , $this->data ) ;
 	}
 
@@ -135,6 +140,17 @@ class DOLModel extends rootOBJ {
 		$this->set_recordset( $this->con->result( $this->con->select( " count( " . implode(",", $this->keys["pk"] ) . ") as q " , $this->table, $fi . $gp ) , "q" , 0 ) );
 	}
 
+	public function load_data_vw(){
+		$ff = isset( $this->field ) ? implode( "," , $this->field ) : " * " ;
+		$fi = isset( $this->filter ) ? " where " . implode( " and " , $this->filter ) . " " : "" ;
+		$or = isset( $this->order ) ? " order by " . implode( " , " , $this->order ) . " " : "" ;
+		$gp = isset( $this->group ) ? " group by " . implode( " , " , $this->group ) . " " : "" ;
+		$pa = isset( $this->paginate ) ? " limit " . implode( " , " , $this->paginate ) . " " : "" ;
+		$r = $this->con->select( $ff, $this->table, $fi . $gp . $or . $pa );
+		$this->set_data( $this->con->results( $r ) );
+		$this->set_recordset( $this->con->result( $this->con->select( " count( 1 ) as q " , $this->table, $fi . $gp ) , "q" , 0 ) );
+	}
+
 	public function attach( $classes = array() , $reverse_table = null , $options = null , $class_field = null  ){
 		$new_data = array() ;
 		$_data = $this->data ;
@@ -152,6 +168,30 @@ class DOLModel extends rootOBJ {
 					isset( $class_field ) ? implode( ", " , $class_field ) : "*"
 					, $class
 					, sprintf( " where active = 'yes' and idx in (%s) %s " , implode( "," , array_unique( $filter_key ) ) , $options )
+				) ;
+				$new_data[ $key ][ $class."_attach" ] = $this->con->results( $r ) ;
+			}
+		}
+		$this->set_data( $new_data ) ;
+	}
+
+	public function attach_all( $classes = array() , $reverse_table = null , $options = null , $class_field = null  ){
+		$new_data = array() ;
+		$_data = $this->data ;
+		foreach( $_data as $key => $value ){
+			$new_data[ $key ] = $value ;
+			foreach( $classes as $class ){
+				$r = $this->con->select(
+					sprintf( "%s_id as k" , $class )
+					, sprintf( "%s_%s" , $reverse_table ? $class : $this->table , $reverse_table ? $this->table : $class )
+					, sprintf( " where %s_id = '%d' order by created_at DESC" , $this->table , $value["idx"] )
+				) ;
+				$filter_key = array( '0' );
+				foreach( $this->con->results( $r ) as $key_r => $data ){ $filter_key[] = "'" . $data[ "k" ] . "'" ; } 
+				$r = $this->con->select(
+					isset( $class_field ) ? implode( ", " , $class_field ) : "*"
+					, $class
+					, sprintf( " where idx in (%s) %s order by created_at DESC" , implode( "," , array_unique( $filter_key ) ) , $options )
 				) ;
 				$new_data[ $key ][ $class."_attach" ] = $this->con->results( $r ) ;
 			}
@@ -228,7 +268,7 @@ class DOLModel extends rootOBJ {
 						sprintf( " active = 'no' , removed_at = now() , removed_by = '%d' " , $this->con->real_escape_string( isset( $_SESSION[ constant("cAppKey") ]["credential"]["idx"] ) ? $_SESSION[ constant("cAppKey") ]["credential"]["idx"] : 0 ) )
 						, sprintf( " %s_%s " , $reverse_table ? $class : $this->table , $reverse_table ? $this->table : $class )
 						, sprintf( " where active='yes' and %s_id = '%d'" , $this->table , $this->con->real_escape_string( $info["idx"] ) )
-					) ;
+					);
 					foreach ( $varexecute as $var) {
 						$sql = sprintf(
 							"INSERT INTO %s ( %s, %s, created_by, created_at) VALUES( '%d' , '%d', %d , now() ) ON DUPLICATE KEY UPDATE active = 'yes', removed_at = NULL, removed_by = NULL, modified_at=now(), modified_by='%d' "
@@ -245,6 +285,39 @@ class DOLModel extends rootOBJ {
 				}
 			}
 		}
+	}
+	public function array_sort($array, $on, $order=SORT_ASC){
+		$new_array = array();
+		$sortable_array = array();
+
+		if (count($array) > 0) {
+			foreach ($array as $k => $v) {
+				if (is_array($v)) {
+					foreach ($v as $k2 => $v2) {
+						if ($k2 == $on) {
+							$sortable_array[$k] = $v2;
+						}
+					}
+				} else {
+					$sortable_array[$k] = $v;
+				}
+			}
+
+			switch ($order) {
+				case SORT_ASC:
+					asort($sortable_array);
+				break;
+				case SORT_DESC:
+					arsort($sortable_array);
+				break;
+			}
+
+			foreach ($sortable_array as $k => $v) {
+				$new_array[$k] = $array[$k];
+			}
+		}
+
+		return $new_array;
 	}
 }
 ?>

@@ -59,10 +59,6 @@ SetEnv SEO_SUPPORT 1
     RewriteCond "%{REQUEST_FILENAME}\.gz" -s
     RewriteRule "^(.*)\.js" "$1\.js\.gz" [QSA]
 
-    #RewriteCond "%{HTTP:Accept-encoding}" "gzip"
-    #RewriteCond "%{REQUEST_FILENAME}\.gz" -s
-    #RewriteRule "^(.*)\.jpg" "$1\.jpg\.gz" [QSA]
-
 
     RewriteRule "\.css\.gz$" "-" [T=text/css,E=no-gzip:1]
     RewriteRule "\.js\.gz$" "-" [T=text/javascript,E=no-gzip:1]
