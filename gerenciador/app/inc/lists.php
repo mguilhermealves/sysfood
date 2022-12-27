@@ -260,51 +260,12 @@ $genre_lists = array(
   "female" => "Feminino"
 );
 
-$type_goals = array(
-  "1" => "1. Cumprimento do Sell Out do trimestre da área",
-  "2" => "2. Positivação do trimestre da área através da média mês do trimestre",
-  "3" => "3. Cumprimento da PV do trimestre – Venda do Mix planejado com os lançamentos",
-  "4" => "4. Cumprimento da PV (R$)",
-  "bonus" => "Bônus de Pontos"
+
+$position_tables =array(
+  "1" => "Salão Principal"
+  , "2" => "Salão Secundário"
+  , "3" => "Frente"
 );
 
-$periodos = array(
-  "one_quarterly" => "1° Trimestre",
-  "two_quarterly" => "2° Trimestre",
-  "three_quarterly" => "3° Trimestre",
-  "four_quarterly" => "4° Trimestre",
-);
-
-$type_categories = array(
-  "product_base" => "Produto Base",
-  "product_launch" => "Produto Lançamento"
-);
-
-
-$file_import_lists = array(
-"Grupo Distribuição" => "Grupo_Distribuicao"
-, "Agente de Distribuição" => "Agente_de_Distribuicao"
-, "UF Distribuidor  " => "UF_Distribuidor"
-, "Marca" => "Marca"
-, "Categoria" => "Categoria"
-, "SubCategoria" => "SubCategoria"
-, "Família" => "Familia"
-, "Descrição" => "Descricao"
-, "SKU" => "SKU"
-, "Regional" => "Regional"
-, "Área Mercado" => "area_Mercado"
-, "Cód. Gerente" => "Cod_Gerente"
-, "Cód. Supervisor" => "Cod_Supervisor"
-, "Cód. Vendedor" => "Cod_Vendedor"
-, "Cidade PDV" => "Cidade_PDV"
-, "UF PDV" => "UF_PDV"
-, "CNPJ PDV" => "CNPJ_PDV"
-, "Razão Social PDV" => "Razao_Social_PDV"
-, "Tipo de Transação" => "Tipo_de_Transacao"
-, "Ano" => "Ano"
-, "Mês" => "Mes"
-, "Dia" => "Dia"
-, "# Sell-Out (Und)" => "Sell_Out"
-) ;
 
 ?>

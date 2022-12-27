@@ -9,7 +9,8 @@
         </li>
         <?php
         $b = new menus_model();
-        $b->set_filter( array( " parent = -1 " , " idx in ( select menus_profiles.menus_id from menus_profiles where menus_profiles.active = 'yes' and menus_profiles.profiles_id in ('" . implode("','", isset( $_SESSION[ constant("cAppKey") ]["credential"]["profiles_attach"][0] ) ? array_column( $_SESSION[ constant("cAppKey") ]["credential"]["profiles_attach"] , "idx" ) : array(0) )  . "') ) " ) ) ;
+        $b->set_filter( array("active = 'yes'", " parent = -1 " , " idx in ( select menus_profiles.menus_id from menus_profiles where menus_profiles.active = 'yes' and menus_profiles.profiles_id in ('" . implode("','", isset( $_SESSION[ constant("cAppKey") ]["credential"]["profiles_attach"][0] ) ? array_column( $_SESSION[ constant("cAppKey") ]["credential"]["profiles_attach"] , "idx" ) : array(0) )  . "') ) " ) ) ;
+        $b->set_order(array("position"));
         $b->load_data();
         $b->attach( array( "urls" ) );
         $b->join("menus" , "menus" , array( "parent" => "idx" ) , " and idx in ( select menus_profiles.menus_id from menus_profiles where menus_profiles.active = 'yes' and menus_profiles.profiles_id in ('" . implode("','", isset( $_SESSION[ constant("cAppKey") ]["credential"]["profiles_attach"][0] ) ? array_column( $_SESSION[ constant("cAppKey") ]["credential"]["profiles_attach"] , "idx" ) : array(0) )  . "') ) " );
