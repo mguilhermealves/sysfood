@@ -1,0 +1,5 @@
+_data/mssql/*
+_data/mysql-data/*
+_data/logs/*
+logs/*
+/upload/*

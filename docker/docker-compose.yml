@@ -1,0 +1,49 @@
+version: '3'
+services:
+  apache_sysfood:
+    build: ./site/
+    depends_on:
+      - mysql_sysfood
+    volumes:
+      - ./site/php.ini:/usr/local/etc/php/php.ini
+      - ../logs/:/var/log/
+      - ../site/public_html/:/var/www/sysfood/public_html/
+      - ../site/app/:/var/www/sysfood/app/
+      - ../site/cgi-bin/:/var/www/sysfood/cgi-bin/
+      - ../gerenciador/httpdocs/:/var/www/sysfood/gerenciador/httpdocs/
+      - ../gerenciador/app/:/var/www/sysfood/gerenciador/app/
+      - ../gerenciador/cgi-bin/:/var/www/sysfood/gerenciador/cgi-bin/
+      - ../upload/:/var/www/sysfood/gerenciador/httpdocs/furniture/upload/
+      - ../upload/:/var/www/sysfood/public_html/furniture/upload/
+      - ../_data/upload/:/var/www/financeiro/gerenciador/httpdocs/furniture/upload/
+    ports:
+      - "80:80"
+    networks:
+      net_sysfood:
+        ipv4_address: 172.29.0.3
+  # Data Layer
+  mysql_sysfood:
+    image: mysql:5.6.35
+    container_name: mysql_sysfood
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password --sql_mode=""
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=mysql_sysfood
+      - MYSQL_USER=user_sysfood
+      - MYSQL_PASSWORD=123456
+    volumes:
+      - ../_data/mysql-data/:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    networks:
+      net_sysfood:
+        ipv4_address: 172.29.0.2
+networks:
+  net_sysfood:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.29.0.0/16

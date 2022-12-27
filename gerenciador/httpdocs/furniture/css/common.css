@@ -1,0 +1,81 @@
+.solaris-header {
+    padding: 0px;
+    margin: 0px 0px 15px 0px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: 1px solid #2c3089;
+}
+
+.solaris-header .box-title span {
+    font-size: 2rem !important;
+    color: #2c3089 !important;
+}
+
+.solaris-head {
+    padding: 20px 0;
+    margin: 0px;
+    border-radius: 15px;
+    border: 1px solid #2c3089
+}
+
+.solaris-head h3 {
+    text-align: center;
+    border-bottom: 3px solid #2c3089
+}
+
+.solaris-head h3 span {
+    font-size: 2rem;
+    color: #2c3089
+}
+
+.solaris-head .box-body {
+    display: block;
+}
+
+.solaris-head .box-body .row_box {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+}
+
+.solaris-head .box-body .row_box .box-dash {
+    border-radius: 15px;
+    border: 1px solid #c0c0c0;
+    padding: 1rem;
+    color: #575A60;
+    font-size: 2.4rem;
+    border-left: 20px solid #000;
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    justify-content: space-around;
+    justify-items: center;
+}
+
+.solaris-head .box-body .row_box .box-dash small {
+    font-size: 0.8rem;
+}
+
+.solaris-head .box-body .row_box .box-dash_blue {
+    border-left-color: #2c3089;
+}
+
+.solaris-head .box-body .row_box .box-dash_grey {
+    border-left-color: #707070;
+}
+
+.solaris-head .inline-list li {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 0.5rem 1rem;
+}
+
+.solaris-head .inline-list li:hover,
+.solaris-head .inline-list li.active {
+    background-color: #707070;
+}
+
+.solaris-head .inline-list li:hover a,
+.solaris-head .inline-list li.active a {
+    color: #ffffff;
+}
