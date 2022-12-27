@@ -68,26 +68,26 @@ class categories_controller
       default:
         $page = 'news';
         $form = array(
-          "done" => rawurlencode(!empty($done) ? set_url($GLOBALS["products_url"], $done) : $GLOBALS["products_url"]),
+          "done" => rawurlencode(!empty($done) ? set_url($GLOBALS["categories_url"], $done) : $GLOBALS["categories_url"]),
           "pattern" => array(
-            "new" => $GLOBALS["newproduct_url"],
-            "action" => $GLOBALS["product_url"],
-            "search" => !empty($info["get"]) ? set_url($GLOBALS["products_url"], $info["get"]) : $GLOBALS["products_url"]
+            "new" => $GLOBALS["newcategory_url"],
+            "action" => $GLOBALS["category_url"],
+            "search" => !empty($info["get"]) ? set_url($GLOBALS["categories_url"], $info["get"]) : $GLOBALS["categories_url"]
           )
         );
         include(constant("cRootServer") . "ui/common/header.inc.php");
         include(constant("cRootServer") . "ui/common/head.inc.php");
-        include(constant("cRootServer") . "ui/page/products/products/products.php");
+        include(constant("cRootServer") . "ui/page/products/categories/categories.php");
         include(constant("cRootServer") . "ui/common/footer.inc.php");
         include(constant("cRootServer") . "ui/common/list_actions.php");
         print('<script>' . "\n");
-        print('    data_products_base_json = {' . "\n");
-        print('        url: "' . $GLOBALS["products_url"] . '.json"' . "\n");
+        print('    data_categories_json = {' . "\n");
+        print('        url: "' . $GLOBALS["categories_url"] . '.json"' . "\n");
         print('        , data: ' . json_encode($done) . "\n");
         print('        , template: ""' . "\n");
         print('        , page: 1' . "\n");
         print('    }' . "\n");
-        include(constant("cRootServer") . "furniture/js/add/news.js");
+        include(constant("cRootServer") . "furniture/js/add/categories.js");
         print('</script>' . "\n");
 
         include(constant("cRootServer") . "ui/common/foot.inc.php");
@@ -109,12 +109,12 @@ class categories_controller
       $data = current($product->data);
 
       $form = array(
-        "url" => sprintf($GLOBALS["product_url"], $info["idx"])
+        "url" => sprintf($GLOBALS["category_url"], $info["idx"])
       );
     } else {
       $data = array();
       $form = array(
-        "url" => $GLOBALS["newproduct_url"]
+        "url" => $GLOBALS["newcategory_url"]
       );
     }
 
@@ -124,12 +124,12 @@ class categories_controller
 
     include(constant("cRootServer") . "ui/common/header.inc.php");
     include(constant("cRootServer") . "ui/common/head.inc.php");
-    include(constant("cRootServer") . "ui/page/products/products/product.php");
+    include(constant("cRootServer") . "ui/page/products/categories/category.php");
     include(constant("cRootServer") . "ui/common/footer.inc.php");
 
     print("<script>");
     print('$("button[name=\'btn_back\']").bind("click", function(){');
-    print(' document.location = "' . (isset($info["get"]["done"]) ? $info["get"]["done"] : $GLOBALS["products_url"]) . '" ');
+    print(' document.location = "' . (isset($info["get"]["done"]) ? $info["get"]["done"] : $GLOBALS["categories_url"]) . '" ');
     print('})' . "\n");
 
     include(constant("cRootServer") . "furniture/js/add/products/bases/base.js");
@@ -161,7 +161,7 @@ class categories_controller
     if (isset($info["post"]["done"]) && !empty($info["post"]["done"])) {
       basic_redir($info["post"]["done"]);
     } else {
-      basic_redir($GLOBALS["products_url"]);
+      basic_redir($GLOBALS["categories_url"]);
     }
   }
 
@@ -183,7 +183,7 @@ class categories_controller
       if (isset($info["post"]["done"])) {
         basic_redir($info["post"]["done"]);
       } else {
-        basic_redir($GLOBALS["products_url"]);
+        basic_redir($GLOBALS["categories_url"]);
       }
     }
   }

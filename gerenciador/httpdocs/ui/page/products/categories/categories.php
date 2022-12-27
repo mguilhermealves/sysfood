@@ -4,7 +4,7 @@
         <div class="box solaris-header">
             <div class="box-header bg-transparent">
                 <h3 class="box-title">
-                    <span>Lista de Vendas Cruzadas (Combo)</span>
+                    <span>Listagem de Categorias</span>
                 </h3>
             </div>
         </div>
@@ -12,18 +12,19 @@
             <div class="box-body" style="padding-left: 0px;padding-right: 0px;">
                 <form class="row_js" style="flex-wrap: wrap; justify-content: flex-start; padding-top: 2rem;" id="frm_filter" method="GET" action="<?php print($form["new"]) ?>" style="display: flex;flex-direction: row;justify-content: space-around;align-items: flex-end;">
 
-                    <div class="large-2 columns"> <label>
+                    <div class="large-2 columns">
+                        <label>
                             Nome
                             <input type="text" name="filter_name" value="<?php print(isset($info["get"]["filter_name"]) ? $info["get"]["filter_name"] : "") ?>">
                         </label>
                     </div>
                     <div class="large-2 columns">
                         <label>
-                            Perfil
+                            Categoria
                             <select name="filter_profile" name="filter_profile">
                                 <option value="" <?php print(!isset($info["get"]["filter_profile"]) || $info["get"]["filter_profile"] == "" ? " selected" : "") ?>></option>
                                 <?php
-                                foreach (profiles_controller::data4select("idx", array(" active = 'yes' ", " editabled = 'yes' ")) as $k => $v) {
+                                foreach (categories_controller::data4select("idx", array(" active = 'yes' ")) as $k => $v) {
                                     printf('<option value="%s"%s>%s</option>' . "\n", $k, isset($info["get"]["filter_profile"]) && $info["get"]["filter_profile"] == $k ? ' selected="selected"' : '', $v);
                                 }
                                 ?>
@@ -53,6 +54,7 @@
         </div>
     </div>
 </div>
+
 <style>
     .row_js {
         justify-content: space-around;

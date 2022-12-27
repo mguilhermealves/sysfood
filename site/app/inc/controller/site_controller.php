@@ -33,10 +33,13 @@ class site_controller
 		if (site_controller::check_login()) {
 			$page = 'dashboard';
 
+			$countTables = tables_controller::countTables();
+			$countOccupied = tables_controller::countOccupied();
+			$countLibered = tables_controller::countLibered();
+
 			$tables = new tables_model();
 			$tables->set_filter(array(" active = 'yes' "));
 			$tables->load_data();
-			$tables->join("commands", "commands", array("tables_id" => "idx"), "and status = 'opened'");
 			$dataTables = $tables->data;
 
 			include(constant("cRootServer") . "ui/common/header.inc.php");

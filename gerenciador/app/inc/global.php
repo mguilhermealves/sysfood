@@ -13,7 +13,7 @@ define ("cBancoStr", 'mysql_sysfood');
 define("prefix_tables" , "");
 
 define( "cAppKey" , "sysfood.gerenciador" );
-define( "cTitle" , "Admin | SysFood" );
+define( "cTitle" , "Gerenciador | SysFood" );
 
 define( "cAppRoot" , "/" );
 define( "cRootServer" ,  sprintf( "%s%s" , $_SERVER["DOCUMENT_ROOT"] , constant("cAppRoot") ) ) ;
@@ -22,7 +22,5 @@ define( "cFrontend" , sprintf( "http://%s%s" , $_SERVER["HTTP_HOST"] , constant(
 define( "cFrontend_USER" , "http://sysfood.local/" );
 
 define( "cFurniture" , sprintf( "%s%s" , constant("cFrontend") , "furniture/" ) );
-
-//DADOS API EXTERNA
 
 ?>

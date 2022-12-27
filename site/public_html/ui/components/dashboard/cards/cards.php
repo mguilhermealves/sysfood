@@ -1,7 +1,9 @@
 <div class="col-lg-4 col-xs-4">
     <div class="small-box bg-green">
         <div class="inner">
-            <h3>5</h3>
+            <h3>
+                <?php print($countLibered) ?>
+            </h3>
 
             <p>Mesas Disponiveis</p>
         </div>
@@ -15,7 +17,9 @@
 <div class="col-lg-4 col-xs-4">
     <div class="small-box bg-red">
         <div class="inner">
-            <h3>10</h3>
+            <h3>
+                <?php print($countOccupied) ?>
+            </h3>
 
             <p>Mesas Indisponiveis</p>
         </div>
@@ -29,7 +33,9 @@
 <div class="col-lg-4 col-xs-4">
     <div class="small-box bg-blue">
         <div class="inner">
-            <h3>15</h3>
+            <h3>
+                <?php print($countTables) ?>
+            </h3>
 
             <p>Total de Mesas</p>
         </div>

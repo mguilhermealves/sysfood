@@ -1,6 +1,6 @@
 <?php foreach ($dataTables as $table) { ?>
     <div class="col-lg-4 col-xs-4">
-        <div class="small-box <?php print(isset($table["commands_attach"][0]) ? "bg-red" : "bg-green") ?>">
+        <div class="small-box <?php print($table["status"] == "libered" ? "bg-green" : "bg-red") ?>">
             <div class="inner">
                 <h3>
                     <?php print($table["name"]) ?>
