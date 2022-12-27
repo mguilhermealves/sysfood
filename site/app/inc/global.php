@@ -15,7 +15,7 @@ define( "cURL_API" , "" );
 define("prefix_tables" , "");
 
 define( "cAppKey" , "sysfood" );
-define( "cTitle" , "Sys Food" );
+define( "cTitle" , "SysFood" );
 
 define( "cAppRoot" , "/" );
 define( "cRootServer" ,  sprintf( "%s%s" , $_SERVER["DOCUMENT_ROOT"] , constant("cAppRoot") ) ) ;
