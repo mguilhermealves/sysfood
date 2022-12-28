@@ -27,6 +27,8 @@ class commands_controller
 		$categories->load_data();
 		$categories->attach(array("products"), true, "and active = 'yes'");
 
+		// print_pre($categories->data, true);
+
 		include(constant("cRootServer") . "ui/common/header.inc.php");
 		include(constant("cRootServer") . "ui/common/head.inc.php");
 		include(constant("cRootServer") . "ui/page/commands/command.php");

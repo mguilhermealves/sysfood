@@ -1,9 +1,6 @@
 <?php if (isset($_SESSION[constant("cAppKey")]["credential"])) { ?>
   </div>
   <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Versão:</b> <?php print(constant("cVersion")) ?>
-    </div>
     <strong>Copyright &copy; 2022-<?php print(date("Y")); ?> <a href="">MJ SYSTEM SOLUTIONS</a>.</strong> Todos os direitos reservados.
   </footer>
 
